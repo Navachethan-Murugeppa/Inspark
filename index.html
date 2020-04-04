@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+    
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+
+</head>
+<body>
+    <h1>Travel Guide</h1>
+    <br>
+    <br>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div style="padding-left:16px">
+  <h2></h2>
+  <p></p>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+    <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="maevel_background.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="abc.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="def.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+<div>
+ <div id="content">
+        <h1>ABOUT KARNATAKA TOURISM</h1>
+        <p>Karnataka, the sixth largest state in India, has been ranked as the third most popular state in the country for tourism in 2014.[1][2] [3] It is home to 507 of the 3600 centrally protected monuments in India, the largest number after Uttar Pradesh.[4] The State Directorate of Archaeology and Museums protects an additional 752 monuments and another 25,000 monuments are yet to receive protection.[5] Tourism centres on the ancient sculptured temples, modern cities, the hill ranges, forests and beaches. Broadly, tourism in Karnataka can be divided into four geographical regions: North Karnataka, the Hill Stations, Coastal Karnataka and South Karnataka.
+
+The Karnataka government has recently introduced The Golden Chariot  a train which connects popular tourist destinations in the state and Goa..</p>
+          <p>click here to known about top tourist place in KARNATAKA!!<a href="https://www.youtube.com/watch?v=HIGHxFs1CCs">CLICK HERE</a>.</p>
+       
+        <h2>The Incredible KARNATAKA...</h2>
+        <span class="center"><img src="style/download.png" alt="example graphic" width="300px" length="600px" /></span>
+          <h2>BARISU  KANNADA DINDIMAVA :by  MAHAKAVI  KUVEMPU</h2>
+          <audio src="style/kannada.mp3"
+                 controls autoplay></audio>
+         <center>        <div>
+        <p>
+          <video src="style/videoplayback.mp4"
+                 width="600" height="270"
+                 poster="style/quotes.jpg"
+                 align=center
+                 preload
+                 controls
+                 loop>
+              <p>KARNATAKA TOURISM AV</p></video>
+          </p>
+         <p>click here to activate your online guide to get the knowledge about mysore!!<a href="https://www.google.com/maps/search/top+places+to+visit+in+mysore/@12.3234986,76.6394667,13.5z">PRESS HERE</a>.</p>
+       
+          </div></centre>
+        <h3>about places</h3>
+         <h4>NORTH KARNATAKA</h4>
+          <p>North Karnataka has monuments that date back to the 5th century. Kannada empires that ruled the Deccan had their capitals here. Badami Chalukyas monuments are located at Pattadakal, Aihole and Badami. Aihole has been called the cradle of Indian architecture[6] and has over 125 temples and monuments built between 450 and 1100 BC. Rashtrakuta monuments at Lokapura, Bilgi and Kuknur and Kalyani Chalukyas monuments built in Gadag style of architecture[7][8] at Lakkundi, Gadag, Itagi (in Koppal District) and the Vijayanagar empire temples at Vijayanagara are some examples. Hampi in Bellary District has ruins spread over an area of 125 km². With some fifty four world heritage monuments and six hundred and fifty national monuments (ASI). An additional three hundred monuments await protection. The Deccan sultanate monuments at Bijapur and Gulbarga show unique and discreet Hindu influences and rival the Muslim monuments of North India. Archeologically important locations like Sannati, Kanaganahalli in Gulbarga district have thrown more light on Buddhist centres of the 1st century BCE to 3rd century CE. The first ever statue of emperor Ashoka with his queens and a Prakrit inscription Rayo Ashoka (ASI) has been found.
+
+Badami surroundings important locations are Kudalasangama, Aihole, Pattadakal, Mahakuta and Banashankari.
+
+Hampi surroundings region, they can be visited from Hampi/Hosapete, or from Hubli. There are Kuknur, Itagi, Gadag, Lakkundi, Dambal, Haveri, Kaginele, Bankapura.
+
+Haveri district shiggaon taluk gotagodi place has a 8 World Records holder museum known as Utsav Rock Garden , is one of the finest Museums in India a cultural heritage and educational tourist center has over 2000 international quality sculptures depicting rural life and traditional farming, folk games , folk life of a village etc ..</p>
+<h4>WORLD HERITAGE CENTERS</h4>
+<p>Hampi, Bellary District:[9] The site of the capital of Vijayanagara (1336) and formerly the seat of the Vijayanagar Empire. Foreign visitors in the 15th and 16th centuries described Hampi as being bigger than Rome. The city was destroyed and deserted in 1565 by marauding Moghul invaders and its ruins now lie scattered over a 26 sq. km area south of the river Tungabhadra. The rocky area near Anegundi to the north of the river has been identified as Kishkindha of Ramayana times.[citation needed] Hampi is home to a 29-foot-tall (8.8 m) monolithic Narasimha, which was installed by Krishnadevaraya in 1529. The remains of palaces and gateways can be seen.
+Group of 8th-century CE monuments, Pattadakal:[10] Located on the banks of the river Malaprabha, Pattadakal was the second capital of the Chalukyas and contains examples of 7th- and 8th-century temple architecture. Four temples are in the south Indian Dravidian style, four in the North Indian Nagara style and the last one, the Papanatha temple represents a hybrid of the two styles. The oldest temples are the Sangameshwara, Mallikarjuna and Virupaksha Temples..</p>    
+<h4>HISTORICAL LOCATIONS</h4>
+<h4>WESTERN CHALUKYA</h4>
+<p>Aihole:[11] a former Chalukya trading city. There are around 140 temples including examples of early Chalukya, Rashtrakuta and later Chalukya dynasties from the 6th to 12th centuries. It has a Jain and Vedic rock-cut shrine, both of about the 6th century. It has Tirthankara images and a Durga temple. The meguti on a hill is a jaina basti which has an Aihole inscription of Pulakeshin 2 and also a Buddhist two-storied rock -cut shrine below it. All the other Jain and Buddhist temples are built of stone and resemble Hindu temples. The temples were built during the Middle Ages before any style was established and hence there is a mixture of styles.
+Badami:[12][13] the capital of the early Chalukyas in the 6th century, is at the mouth of a ravine between two rocky hills. The town is known for its cave temples (all carved out of sandstone hills). Badami have four caves, the cave temple dedicated to Vishnu is the largest. In front of the cave temple, there is a reservoir called Aghastya Teertha dotted with temples on its bank. Among them, two are dedicated to Vishnu, one to Shiva and the fourth is a Jain Temple. Carvings in the cave temples display the Hindu gods, Narashima and Hari Hara. The temples also have paintings on the ceiling and bracket figures on the piers.
+Basavana Bagewadi: It is 43 east of Bijapur. In the 12th century, Saint Basaveshwara was born here. It was an agrahara. The main temple here is in the Chalukya style and it was called as Sangamantha in records. The Samadhis of Siddharameshwara and Gurupadeshwara of the Inchageri school of spiritual pursuit are seen here.
+Basavakalyana,[14] Bidar District: former capital of the Later Chalukyas. It has an old fort renovated by the Bahamani containing an Archaeological Museum. Few Chalukya or Kalachuri remains exist except the Chalukya Narayanapur temple in the outskirts of the town. There is a modern Basaveshwara temple, Prabhudevara Gadduge, Jurist of the Kalyani Chalukyas period. Vijnaneshwara's Cave, Madivala Machiah's Pond, Akka Nagamma's Cave, fully renovated Siddheshwara temple and a new structure called Anubhava Mantapa, the Qaji's mosque and Raja Bagh Sawar Dargah.
+Annigeri (30 km from Hubli): It has an Amriteshwara temple of the time of the Kalyani Chalukyas. It was the birthplace of great Kannada Poet Pampa and there is a Jain basadi of Parshwanatha. It was once a headquarters of Belvola-300. It was the capital of Chalukya Someshwara 4. In addition to Veerashaiva Mathas; there is a ruined Banashankari Temple and seven mosques and also an ancient Veerabhadra temple.
+Bankapura (80 km from Dharwad): Under Chalukya many temples were raised in the city including the Nagareshwara temple in the fort and another chalukya temple called Siddheshwara. Ali Adilshahi destroyed many temples in about 1567. There is a mosque in the fort.
+Dambal (21 km from Gadag): It was a Buddhist centre. There are two notable chalukya temples called Doddabasappa Temple and Somewshwara Temple. Doddabassapa as polygonal star shaped temple garbhagriha and fine sculptural representations and huge nandi Temple. Someshwara could have been an old basati. The temple has a 400-year-old vast tank. There is an old Ganapathi image in old ruined fort. And we can also find a huge Ganapathi image in a small shrine.
+Haveri: This town has Siddheshvara Temple that was built in the 12th century. Siddeshvara Temple situated in the heart of the city of Haveri, inside the well-maintained garden.
+Gadag: It is a twin city municipality and it is 55 km from Hubli-Dharward. It is a great centre of Kalyani Chalukyas art with the large Trikuteshwara temple. It has Sri Lakshmi Venkateshwara temple is situated at Venkatapura Taluk near Sortur , Gadag District. Temple was renovated by Brahmananda Swami, a devotee of Gondavalekar Maharaj a sage from Gondavale. It was latter expanded by Kalyani Chalukyas into a vast complex.[15] The complex has triple shrines once housing Shiva, Brahma and Surya. The Saraswathi temple has the shining decorative pillars, and the Saraswathi image, and it is one of the largest examples of Chalukya art. The place has Someshwara and Rameshwara temples of Chalukya style. It has Veeranarayana temple of Chalukya times.
+Lakkundi, 10 km from Gadag, Gadag District: There were 100 temples and 100 wells but now few can be visited. These include Brahma Jinalaya, Kasivisvesvara and Kalyani.
+Someshwara temple complex Lakshmeshwar in the Shirahatti Taluk, Gadag District, North Karnataka. The temple complex has the Someshwara temple of Shiva along with so many Shiva temples inside the fort-like compound.
+Galaganatha Galageshwara temple is located in the Haveri District. The temple has big open hall and pyramidal shaped Garbhagudi. The temple is situated along the Tungabhadra river.
+Chaudayyadanapura Mukteshwara temple, near Ranebennur in Haveri District, North Karnataka
+Mahadeva Temple (Itagi) in the Koppal district, North Karnataka, built during 1112 CE. This temple is an example of dravida articulation with a nagara superstructure. This Temple is also called Devalayagala Chakravarti in Kannada (Emperor among Temples).
+Panchakuta Basadi, Kambadahalli in Mandya district was built in 8th century. This temple is one of the finest examples of South Indian Dravidian architecture of the Western Ganga.
+Shambulinga Temple, Kundgol is about 15 km from Hubli-Dharwad. This place is famous[citation needed] for Hindustani music[16] and Huge Shambulinga Temple.
+Hooli Panchalingeshwara Temple
+Lakshmeshwar has Someshwara temple complex, Jain Basadis.
+Kudalasangama has Sangamanatha temple which belongs to Chalukya. It is a Karma Bhumi of Basavanna. Kudalasangama development authority has developed this place as one of the International tourism place. From Kudalasangama Almatti Dam is about 12 km, it has got North Karnataka's biggest Rock Garden..</p>
+ <h4>KADAMBA DYNASTY</h4>
+<p>Aihole:[11] a former Chalukya trading city. There are around 140 temples including examples of early Chalukya, Rashtrakuta and later Chalukya dynasties from the 6th to 12th centuries. It has a Jain and Vedic rock-cut shrine, both of about the 6th century. It has Tirthankara images and a Durga temple. The meguti on a hill is a jaina basti which has an Aihole inscription of Pulakeshin 2 and also a Buddhist two-storied rock -cut shrine below it. All the other Jain and Buddhist temples are built of stone and resemble Hindu temples. The temples were built during the Middle Ages before any style was established and hence there is a mixture of styles.
+Badami:[12][13] the capital of the early Chalukyas in the 6th century, is at the mouth of a ravine between two rocky hills. The town is known for its cave temples (all carved out of sandstone hills). Badami have four caves, the cave temple dedicated to Vishnu is the largest. In front of the cave temple, there is a reservoir called Aghastya Teertha dotted with temples on its bank. Among them, two are dedicated to Vishnu, one to Shiva and the fourth is a Jain Temple. Carvings in the cave temples display the Hindu gods, Narashima and Hari Hara. The temples also have paintings on the ceiling and bracket figures on the piers.
+Basavana Bagewadi: It is 43 east of Bijapur. In the 12th century, Saint Basaveshwara was born here. It was an agrahara. The main temple here is in the Chalukya style and it was called as Sangamantha in records. The Samadhis of Siddharameshwara and Gurupadeshwara of the Inchageri school of spiritual pursuit are seen here.
+Basavakalyana,[14] Bidar District: former capital of the Later Chalukyas. It has an old fort renovated by the Bahamani containing an Archaeological Museum. Few Chalukya or Kalachuri remains exist except the Chalukya Narayanapur temple in the outskirts of the town. There is a modern Basaveshwara temple, Prabhudevara Gadduge, Jurist of the Kalyani Chalukyas period. Vijnaneshwara's Cave, Madivala Machiah's Pond, Akka Nagamma's Cave, fully renovated Siddheshwara temple and a new structure called Anubhava Mantapa, the Qaji's mosque and Raja Bagh Sawar Dargah.
+Annigeri (30 km from Hubli): It has an Amriteshwara temple of the time of the Kalyani Chalukyas. It was the birthplace of great Kannada Poet Pampa and there is a Jain basadi of Parshwanatha. It was once a headquarters of Belvola-300. It was the capital of Chalukya Someshwara 4. In addition to Veerashaiva Mathas; there is a ruined Banashankari Temple and seven mosques and also an ancient Veerabhadra temple.
+Bankapura (80 km from Dharwad): Under Chalukya many temples were raised in the city including the Nagareshwara temple in the fort and another chalukya temple called Siddheshwara. Ali Adilshahi destroyed many temples in about 1567. There is a mosque in the fort.
+Dambal (21 km from Gadag): It was a Buddhist centre. There are two notable chalukya temples called Doddabasappa Temple and Somewshwara Temple. Doddabassapa as polygonal star shaped temple garbhagriha and fine sculptural representations and huge nandi Temple. Someshwara could have been an old basati. The temple has a 400-year-old vast tank. There is an old Ganapathi image in old ruined fort. And we can also find a huge Ganapathi image in a small shrine.
+Haveri: This town has Siddheshvara Temple that was built in the 12th century. Siddeshvara Temple situated in the heart of the city of Haveri, inside the well-maintained garden.
+Gadag: It is a twin city municipality and it is 55 km from Hubli-Dharward. It is a great centre of Kalyani Chalukyas art with the large Trikuteshwara temple. It has Sri Lakshmi Venkateshwara temple is situated at Venkatapura Taluk near Sortur , Gadag District. Temple was renovated by Brahmananda Swami, a devotee of Gondavalekar Maharaj a sage from Gondavale. It was latter expanded by Kalyani Chalukyas into a vast complex.[15] The complex has triple shrines once housing Shiva, Brahma and Surya. The Saraswathi temple has the shining decorative pillars, and the Saraswathi image, and it is one of the largest examples of Chalukya art. The place has Someshwara and Rameshwara temples of Chalukya style. It has Veeranarayana temple of Chalukya times.
+Lakkundi, 10 km from Gadag, Gadag District: There were 100 temples and 100 wells but now few can be visited. These include Brahma Jinalaya, Kasivisvesvara and Kalyani.
+Someshwara temple complex Lakshmeshwar in the Shirahatti Taluk, Gadag District, North Karnataka. The temple complex has the Someshwara temple of Shiva along with so many Shiva temples inside the fort-like compound.
+Galaganatha Galageshwara temple is located in the Haveri District. The temple has big open hall and pyramidal shaped Garbhagudi. The temple is situated along the Tungabhadra river.
+Chaudayyadanapura Mukteshwara temple, near Ranebennur in Haveri District, North Karnataka
+Mahadeva Temple (Itagi) in the Koppal district, North Karnataka, built during 1112 CE. This temple is an example of dravida articulation with a nagara superstructure. This Temple is also called Devalayagala Chakravarti in Kannada (Emperor among Temples).
+Panchakuta Basadi, Kambadahalli in Mandya district was built in 8th century. This temple is one of the finest examples of South Indian Dravidian architecture of the Western Ganga.
+Shambulinga Temple, Kundgol is about 15 km from Hubli-Dharwad. This place is famous[citation needed] for Hindustani music[16] and Huge Shambulinga Temple.
+Hooli Panchalingeshwara Temple
+Lakshmeshwar has Someshwara temple complex, Jain Basadis.
+Kudalasangama has Sangamanatha temple which belongs to Chalukya. It is a Karma Bhumi of Basavanna. Kudalasangama development authority has developed this place as one of the International tourism place. From Kudalasangama Almatti Dam is about 12 km, it has got North Karnataka's biggest Rock Garden..</p>
+<h4>DECCAN SULTANATES</h4>
+<p>Bijapur:[17] The former capital of the Adil Shahi Kings (1489–1686). Gol Gumbaz[18] is the mausoleum of Muhammed Adil Shah and was built in 1659. It houses the world's second largest dome, unsupported by pillars. Malik-e-Maidan is a 55-ton cannon perched on a platform. The head of the cannon is fashioned into the shape of a lion whose jaws are trying to devour an elephant.
+Bidar:[19] a centre for Bidriware. It is the location of the tombs of 30 rulers including the Chaukhandi of Hazrat Khalil-Ullah Shah and Sultan Ahmed Shah Al Wali Bahamani from the Bahamani dynasty.
+Gulbarga
+Raichur
+Lakshmeshwar: The Jumma Masjid, built during the rule of Adilshahi, has a large crowning onion dome and Koranic scripture written in gold..</p>
+<h4>RATTAS</h4>
+<p>Saundatti: The town proper has a fort on the hill built during the 17th century, by Sirasangi Desai, with eight bastions. It was the capital of Rattas who later shifted their headquarters to Belgaum. There are two temples of Ankeshwara, Puradeshwara, Mallikarjuna, Venkateshwara and the Veerabhadra. The Renukasagar waters touch the outskirts of Saundatti. Tourist attractions of this region are Hooli Panchalingeshwara temple, Renuka (Yallamma) temple, Saundatti Fort, Parasgad Fort, Navilateertha..</p>
+<h4>PLACES OF WORSHIP</h4>
+<p>Devala Ganagapura, It is the second incarnation of Lord Dattatreya away from Afzalpur taluk around 25 km, Gulbarga District: It is 651 km from Bangalore. Sri Narasimha Saraswati stayed here for a long time and was granted a jahgir by the Bahmani Sultan. The sultan believed that the saint had cured him of a large boil. The saint is treated by his followers as an incarnation of Dattatreya. The Saint has cured the Sultan of a serious boil. The Saint is treated as an incarnation of Dattatreya and devotees from Maharashtra and Karnataka. It is a very holy place..</p>
+<h4>JAIN BASADIES</h4>
+<p>Jainism has a long history in Karnataka. Belgaum District has the Kamala basadi in Chalukya style in the Belgaum Fort. The ancient centre Tavanidi near Nippani and newly created centre at Shedbal, where 24 Tirthankaras in white marble have been installed in a cluster.
+
+The Chalukyas of Badami built cave temples at Badami, Pattadkal and Aihole. Puligere was a strong centre of religious activities of the Jain monks during this era.
+
+Lakkundi in Gadag District has a large Brahma Jinalaya of Chalukya style, built by a noble lady, Attimabbe.
+
+Navagraha Jain Temple at Varur near Hubli is one of the major pilgrimage. The temple features a 61 feet (18.6 m) tall monolithic idol of the Shri 1008 Bhagavan Parshvanatha and the smaller statues of the other 8 Jain teerthankaras..</p>
+<h4>BUDDHIST TEMPLE</h4>
+<p>Tara Bhagavati temples, Balligavi, Shiralkoppa
+Koliwada and Dambal, Gadag district
+Sannati and Kanaganahalli, Gulbarga District: remains of the razed stupas and a Buddhist plaques of Satavahana period were unearthed recently
+Aihole: Viharas
+Badami: Buddhist remains from the Badami Chalukyas period were found between caves two and three
+Mundgod, Uttara Kannada: Tibetan settlements with multi-coloured stupas and painted prayer halls
+Gulbarga: Two new viharas.</p>
+<h4>SHIVA TEMPLE</h4>
+<p>Gokarna is a great all-India centre where the Atmalinga (Mahabaleshwara) of Shiva, brought by Ravana is believed to have been installed. Nearby is Murudeshwar where a huge modern Shiva temple in Dravidian Style has been raised, renovating an ancient shrine. Both the places are on the sea-shore in Uttara Kannada. At Hampi is the Virupaksha Temple, venerated by generations of poets, scholars, kings and commoners.
+
+The Shiva temple at Kudalasangama in Bagalkot District is associated with Saint Basaveshwara. Equally remarkable pieces of art are the Virupaksha and the Mallikarjuna at Pattadakal in Bagalkote dt.
+
+The Veerashaivas have many venerated places, either associated with Basaveshwara or his contemporaries. Basavana Bagewadi was his place of birth and Kudala Sangama the place of his spiritual practices, are in Bijapur and Bagalkot dts. The latter is at the confluence of the river Krishna and the Malaprabha. Basava Kalyana (Kalyani), the ancient Chalukya capital in Bidar District was the place where he conducted his socio-religious movement. Ulavi in Uttara Kannada, a quiet place amidst forests, has the samadhi of Chennabasavanna, Basaveshwara's nephew. Belgami (Balligavi), the Chalukya art centre in Shimoga dt. is identified as the birthplace of Allama Prabhu and Uduthadi near it, is the native place of Akka Mahadevi. Later Veerashaiva saints are associated with many places. Kodekal (Gulbarga dt.) Basavanna temple, Kadakola Madivallajja Matha, Sharana Basaveshwara temple and Dasoha Math at Gulbarga are few more places of worship.
+
+Athani has the samadhi of the Veerashaiva Saint Shivayogi. Some of the outstanding Veerashaiva Mathas are seen at Naganur near Bailhongal and Kalmatha in Belgaum, Durudundeshwara Matha at Arabhavi and Mahantaswamy Matha at Murgod are in Belgaum dt. Murugha Matha (Dharwad), Annadaneshwara Matha (Mundargi), Tontadarya Matha at Gadag and Dambal, Moorusavira Matha at Hubli, Murugha Matha and Hukkeri Matha (Haveri), Taralabalu Matha at Sirigere, Murugharajendra Matha at Chitradurga, Banthanala Shivajogi Matha at Chadachan and Mahantaswamy Matha (Ilkal) are equally notable. The samadhi of Sharanabasappa Appa at Gulbarga..</p>
+<h4>SHAKTI STHALA</h4>
+<p>The following places are visited by devotees of Shakti
+
+Chandralamba, Sannati, Gulbarga
+Bagyawanti, Ghattaragi
+Mayavva, Chinchli
+Yellamma, Saundatti
+Banashankari, Badami, Bagalkote district
+Bhuvaneshwari, Hampi
+Varadahalli, Sagara, Karnataka
+Sigandur, Sagara, Karnataka
+Marikamba, Sagara, Karnataka
+Marikamba, Sirsi, Uttara Kannada
+Durga Parameshwari Kateel, Dakshina Kannada
+Mookambika Kollur, Udupi District
+Mysore Karnataka, Mysore District.</p>
+<h4>TEMPLE TANKS</h4>
+<p>Agastya Teertha, Badami
+Mahakuta group of temples, near Badami
+Banashankari, near Badami
+Lakkundi, near Gadag
+Hampi.</p>
+<h4>COASTAL KARNATAKA</h4>
+<p>Coastal Karnataka is the stronghold of Hindu and Jain pilgrimage spots with Udupi and its many temples being the centre of Dvaita philosophy, Gokarna is known for Vedic studies, Sringeri has the first of the Shankaracharya mathas and is important for its Advaita philosophy, Karkala and Mudabidri are well known places of Jain worship and Vaishnava rituals. Exquisite Vijayanagar temples built in Chalukya – Malabar region combinational style are seen in Bhatkal, Kumta, Shirali etc. The warm beaches of Karnataka are mostly unspoiled.
+
+Jamboti, 20 km south-west of Belgaum, has popular evergreen hilltop forests.
+
+Karnataka is blessed with over 300 km of pristine coastal stretch. Netrani Island of Uttara Kannada is known for coral reefs. St. Mary's Island, a few kilometres from Udupi has basalt rock formations. Sunny beaches at places like Malpe, Murdeshwara, Maravanthe, Gokarna, Kumta have spectacular mountains to the east. Agumbe, Kodachadri hills, Kemmangundi, are just a few of many hill stations that straddle the coast providing tourists sun and greenery. Unlike many crowded hill stations in South India, the hill stations of Karnataka are still mostly undiscovered and pristine..</p>
+<p>Gokarna: The Coastal town of Gokarna is a pilgrimage centre as well as a centre of Sanskrit learning, 56 km from Karwar. It has the Mahabaleswar Temple with the 'Atmalinga' dedicated to Shiva. There is an enormous chariot, which is taken out in a procession on Shiva's birthday in February. The Tambraparni Teertha here is considered sacred to perform obsequies of the dead. There is a beach called Om Beach..</p>
+<p>Udupi: One of the holy place and it is 58 km from Mangalore. The Krishna temple here is founded by Acharya Madhwa during the 14th century. He founded eight mathas to conduct the services of Lord Krishna in turns. Paryaya festival is held once in two years in January. The place has Kadiyali Durga temple, Ambalapadi Shakti temple, Raghavendra Matha and the Venkataraman swamy temple. Malpe is the port near here. It has a beach and the Vadabhandeshwara temple of Balarama.
+Thantrady : One of the holy place and it is 22 km from Udupi. The brammasthana temple here founded by sri Ramanna bairy. It was an astabanda bramha. The main archaka of this temple is Nagaraj bairy..</p>
+<p>Karkala: 50 km from Mangalore and 20 km from North of Moodabidire, is Karkala, an important centre of Jainism. There are several temples and a 17 metres high statue of Bahubali (Gomateshwara), situated on a small hill. The statue is a naked figure reached by a flight of rock-cut steps. Some of the temples are Chaturmukha Basti (1587), Neminatha Basti, Ananthapadmanabha Temple (1567) dedicated to Vishnu, and Venkataramana temple (Padutirupathi)..</p>
+<p>Venur: Situated 50 km NE of Mangalore, has eight Bastis and ruins of a Mahadeva temple. The largest of them is the 17C Kalli Basti, dedicated to Shantinatha. There is a Gommateshwara Monolith, 11metres high dating back to 1604 in Venur.
+Malpe Beach: Situated 66 km north of Mangalore, near Manipal.[20] It has a tourist beach. The uninhibited St. Mary's Island, accessible by boat, has a beach and an impressive geological formation of basalt rock pillars into the sea.
+Dharmastala: Situated 75 km from Mangalore, Dharmastala is an attractive site surrounded by forested hills, rice fields and by the river Netravati on all sides. The Manjunatha temple here is a pilgrim centre. A Monolithic statue of Bahubali 14metres high was erected here in 1973. Visitors are provided with free boarding and lodging by the temple authorities. There is a small museum, Manjusha Museum located opposite to the temple. There are two temple chariots covered in wooden figures and all types of religious objects including carved and painted panels, bronze sculptures and bells.
+Kollur, 147 km from Mangalore: The temple of goddess Mookambika is located here on top of Kodachadri hill, at the foot of the Western Ghats. The goddess takes the form of a 'Jyotirlinga' incorporating aspects of Shiva and Shakti. It is a pilgrimage centre attracting lot of devotees..</p>
+<p>Moodabidre: Situated 35 km from Mangalore, Moodabidire has Jain temples known as Basti's. There are 18 Bastis, the oldest and the largest is the Chandranatha Basti (1429) with its 1000 pillared hall. 'The Jain Matha' near the entrance has an important collection of manuscripts. Other shrines worthy of mention are Shantinatha, Settara, Derama Setti Basti, Guru Basti, Kote and Vikrama Setti Basti.
+Bhatkal: located 135 km from Karwar was the main port of Vijayanagar empire in the 16th century. The ancient town has temples of Vijayanagar style and many Jain monuments. The 17th-century Hindu temple here in Vijayanagar style has animal carvings. 16 km away is the shore temple of Shri Murdeshwar. The temple attracts a lot of devotees and tourists.
+Honnavar: situated 90 km from Karwar, has a Portuguese fort. There is also a fort in Basavaraja Durga Island, amidst the sea which can be reached by a sail upstream on river Sharavathi.
+Ankola: Located 37 km south of Karwar, is a small town with 15th-century ruined walls of King Sarpamalika's fort and the ancient Shri Venketaraman Temple. Near the temple there are two giant wooden chariots carved with scenes from the Ramayana..</p>
+<p>Murudeshwar: The Murudeshwar Temple in Uttara Kannada District of Karnataka now possesses at 249-feet Raja Gopura. The Murudeswar temple complex is renowned for the tallest idol of Lord Shiva in the world, which is 123 feet. The latest addition to the temple, thanks to Mr. RN Shetty an entrepreneur and philanthropist, is the Rajagopuram, which was opened on 12 April 2008. And is it the tallest Hindu Temple Gopuram in the World. If Gopuram can be considered as a unique ornate structure associated with Hindu Temples, then the Gopura of Murudeshwar Temple in Karnataka should be the tallest in the world.
+The Rajagopuram of Murudeswar Temple has 21 floors, including the ground floor. The base measures 105 feet in length and 51 feet breadth. The gopura also possess a lift and visitors can go to the top and have an aerial view of the Arabian Sea and the statue of Lord Shiva. Another highlight is the life-size statues of two elephants at the base of the gopura.
+World's tallest Siva idol: The highlights of Murudeshwar lie beyond its beach and rural flair.[tone] On a little green hill, a 37 m (or 123 feet) Lord Shiva idol sits enthroned, surrounded by smaller statues illustrating moments of the Hindu mythology[citation needed]
+Beaches
+<h4>BEACHES</h4
+Karwar has a number of beaches like Blue Lagoon Beach, Ladies Beach around it and Rabindranath Tagore described his experiences at Karwar beach in his poetry. Om beach, Murdeshwara are other beaches of Uttara Kannada Dist. The Nethrani Island near Murdeshwara. Basavaraja Durga near Honavar is an island fort raised by the Keladi Rulers during 16th and 17th centuries. It is surrounded by a strong fortification raised by gigantic laterite blocks and the hill has a flat top. Devagad and Kurmagad are two islands near Karwar. {Nirvana beach} at Kagal village of Kumta is a 5 km long beach in one stretch with white sand and transparent water in the month of December till March. The entire beach coastline is covered by Casuarina and coconut trees, unparallel to any beach of India, and has the big potential to develop beach tourism like the Baga-Calangute-Candolim beach of Goa. Government of Karnataka and tourism department has failed in tapping this potential, whereas Goa has left Karnataka much behind in beach tourism. There is an urgent need to do something in this direction to allow beach tourism on the same model of Goa in the months of September to may.
+<h4>PLANETARIUM</h4>
+
+Swami Vivekananda Planetarium: Situated at Pilikula in Mangalore, it is the 1st 3D Planetarium in India.[21].</p>
+<h4>SOUTH KARNATAKA</h4>
+<p>South Karnataka is a unique combination of spectacular vesara style Hoysala architecture, colossal Jain monuments, colonial buildings and palaces of the Kingdom of Mysore, impregnable fort at Chitradurga and densely forested wildlife sanctuaries that offer some of the best eco-tourism available in the country. Belur, Halebidu in Hassan District, Somnathpura in Mysore District, Belavadi, Kalasa and Amrithapura in Chikmagalur District, Balligavi in Shimoga District offer some of the best of Hoysala architecture dating from the 11th to 13th centuries, while Shravanabelagola in Hassan district and Kambadahalli in Mandya District have well known 10th-century Jain monuments. Scenic forests and the high density of wild animals of this region are a popular attraction for those interested in the wilder side of life. Bandipur National Park, Nagarahole, Biligirirangan Hills, Bhadra Wildlife Sanctuary and Bannerghatta national parks are a few popular places for jungle safaris.
+
+The river Kaveri flows east from Kodagu District and along its way one finds important tourist destinations like Shivanasamudra and nearby Sivasamudram Falls,
+
+Srirangapattana and Melkote etc. Mysuru, the cultural capital of the state is home to palaces, colonial buildings and cultural activities including Carnatic music, theatre. Bengaluru the capital is a cosmopolitan city with parks, pubs, restaurants, shopping and fast-paced technology-rich lifestyle.
+
+Bengaluru: the capital of Karnataka has many tourist attractions..</p>
+<p>South Karnataka is a unique combination of spectacular vesara style Hoysala architecture, colossal Jain monuments, colonial buildings and palaces of the Kingdom of Mysore, impregnable fort at Chitradurga and densely forested wildlife sanctuaries that offer some of the best eco-tourism available in the country. Belur, Halebidu in Hassan District, Somnathpura in Mysore District, Belavadi, Kalasa and Amrithapura in Chikmagalur District, Balligavi in Shimoga District offer some of the best of Hoysala architecture dating from the 11th to 13th centuries, while Shravanabelagola in Hassan district and Kambadahalli in Mandya District have well known 10th-century Jain monuments. Scenic forests and the high density of wild animals of this region are a popular attraction for those interested in the wilder side of life. Bandipur National Park, Nagarahole, Biligirirangan Hills, Bhadra Wildlife Sanctuary and Bannerghatta national parks are a few popular places for jungle safaris.
+
+The river Kaveri flows east from Kodagu District and along its way one finds important tourist destinations like Shivanasamudra and nearby Sivasamudram Falls,
+
+Srirangapattana and Melkote etc. Mysuru, the cultural capital of the state is home to palaces, colonial buildings and cultural activities including Carnatic music, theatre. Bengaluru the capital is a cosmopolitan city with parks, pubs, restaurants, shopping and fast-paced technology-rich lifestyle.
+
+Bengaluru: the capital of Karnataka has many tourist attractions..</p>
+<p>Halebidu: It is 27 km from Hassan, was capital of Hoysala and it was formerly called as Dwarasamudra. It has one of the finest Hoysala temples said to have been started by Ketamalla, a commander of Vishnuvardhana in 1121. The twin Shiva Temples, Hoysaleswara Temple and Kedareshwara Temple with a common platform and two garbhagrihas, one houses for Vishnuvardhana Hoysaleshwara Linga and the other for Shanthaleshwara Linga. In front of Hoysaleshwara is the Nandimantapa and behind that is shrine of Surya with a two-meter-tall image. Outer walls have rows of intricate figures narrating episodes from epics like Ramyana, Mahabartha, and Bhagavata. There are also three Jain basadis equally rich in architecture. The temples are proposed to be listed under UNESCO World Heritage Sites.[22]
+Arasikere: It is 41 km from Hassan and 176 km from Bangalore. It has coconut gardens. There is a Kattameshwara temple here which is also called Chandramoulishwara and referred to as Kalmeshwara in the records. It is a fine Hoysala monument with a rare polygonal frontal Mantapa with special design. There is a fine Haluvokkalu Temple and also a Sahasrakuta Jinalaya. Malekal Tirupathi near Arasikere has a venkataramana temple visited by many devotees.
+Aralaguppe: There is a Kalleshwara temple in the Ganga-Nalamba style of the 9th century. Its ceiling has a dancing Shiva sculpture with musical accompanists and eight Dikpalas surrounding him with all their paraphernalia. There is a Chennakeshava temple of the Hoysala style. An image of Vishnu lies in the garbhagriha. There are four Ganga temples.
+Madhugiri: It is 43 km from Tumkur and has a large hill fort. The ancient name of the place is Maddagiri. It has the temples of Venkataramana and Malleshwara built by Vijayanagara feudatories. There is also a Mallinatha basadi. The fort has gateways called Antaralada Bagilu, Diddibagilu, Mysore Gate etc. 19 km from here is another hill fort called Midigeshi.
+Madikeri or Mercara: Known as Scotland of India, Mercara known for its climate. It has many places of attraction such as Tala Cauvery, Nagarahole National Park, Abbe Water Falls, St. Mark's Church, Bagamandala, Cauvery Nisargadhama, Belegiri Hills, Thadiyanda Murali Kund, Igguthappa Temple, Irupu Falls And Coffee & Tea Estates..</p>
+<p>Srirangapattana: It is 14 km from Mysore & it is an island in between two branches of the Cauvery. It was also the capital of the Mysore rulers. There is a Ranganath temple here. The fort here was built in 1454. The Mysore rules made it their capital in 1610 in the days of Raja Wodeyar, who took it from the Vijayanagara Governor. The Ranganatha temple is called Adi Ranga. Ganjam has Dariya Daulat palace of Tipu and Gumbaz, the mausoleum of Haider and Tipu. Both are impressive structures of Indo-Saracenic style. The palace has paintings, fine woodwork and it houses a museum.
+Melukote: It is a religious centre which attracts lakhs of people during its annual feast Vairamudi. The temple was reconstructed in the Hoysala style by Visnuvardhana with the guidance of Ramanujacharya, a Visistadvaitist, in the 11th century. There are Cheluvanarayanaswamy temple, Kalyani, Hill shrine of Lord Narasimha, Thottilamadu, Dhanuskoti, Academy of Sanskrit Research and many more to visit. The nearest tourist places are Thondanur, Srirangapatna, Karigatta, Nagamangala etc.,
+Mahadeshwara Betta: It is 220 km from Bangalore and 142 km from Mysore. It is very close to eastern Ghats. It is said that a saint called Mahadeshwara, who could ride a tiger, lived and had his gadduge here during the 14th and 15th centuries. The hill is full of thick forests and thousands of pilgrims visit the place.
+Talakadu: A Holy place on the banks of the Cauvery. It is full of sands, carried by the wind from the dried bed of the river. It was the second capital of the Gangas. They built the Pataleshwara and the Maruleshwara templeshere. Hoysala Vishnuvardhana built Kirti Narayana temple..</p>
+<p>Bhadravathi: It is an industrial town in Shimoga district 256 km away from Bangalore, which was earlier known as "Benkipura". There is a 13th-century Lakshminarayan Temple in Hoysala style. An iron and steel works, a cement factory and a paper factory are located on the banks of Bhadra river.
+Ikkeri: It was a capital town of the Keladi Nayakas from 1512, and a place is 2 km from Sagara City. The Aghoreshwara temple is a 16th-century monument of great attraction. There is also a Paravathi temple nearby. Keladi is another place nearby, the original capital. It has the Rameshwara and Veerabhadra temples. There is also a museum.
+Sravanabelgola: It has a statue of Lord Bahubali. The place is an important Jain pilgrimage center and has a long history. The 17 meter high statue of Bahubali is said to be the tallest monolithic structure in the world. It overlooks the small town of Shravanbelgola from the top of the rocky hill known as Indragiri. One can reach this hill after ascending 614 rock-cut steps.
+Somnathpura: It is the home to one of the best examples of Hoysala temple architecture, the Kesava Temple..</p>
+<p>Jog Falls: the highest waterfalls in India, is located about 30 km from Sagara City, Karnataka. The Sharavati river drops 253 metres in 4 separate falls known as Rani-the Rocket and Raja-the Roarer. The highest is the Raja with the fall of 253 metres and a pool below 40metres deep. The best time to visit is Late November to early January. The 50 km long Hirebhasgar Reservoir and the Linganamkki dam regulates the flow of the Sharavati river to generate the hydro electricity.
+Mekedatu: It is a picnic spot by the river Cauvery. It tumbles down through a deep ravine, on top of which is a chasm around 5 meters wide. Mekedatu is on Kanakapura Road.
+Hesaraghatta: Hesaraghatta has an artificial lake, a dairy and a horticulture farm. Boating and windsurfing are the other attractions. Also here is the Nrityagrama where young dancers are trained in all disciplines of traditional dance.
+Shivagange: A hill with four faces, rising to a height of 4599 ft looks like a Nandi from the East, Ganesh from the West, A Linga from the South and Cobra with it hood spread from the North side. It is accessible by road.
+Shivanasamudram: The waterfalls, the Ganganchukki and the Bharachukki, cascade down 90 meters. These falls are the source of Asia's first Hydro Electric Power Statin called "Shimsa". The falls are in full splendour during July–August. The falls are 122 km from the Bangalore.
+Hogenakkal Falls: These are also known as the 'smoking rocks' because of the mist. At the bottom of the 90 ft water falls, one can ride in a coracle.
+Devarayanadurga: This is a hill station of Tumkur road perched at a height of 3940 feet. A few kilometres from foot of the hills is a natural spring called Namada Chilume..</p>
+<h4>PLACES</h4>
+<p>Bangalore Palace
+Mysore Palace,Also known as Ambavilas Palace
+Nalknad Palace
+Rajendra Vilas
+Jaganmohan Palace
+Jayalakshmi Vilas Mansion
+Lalitha Mahal
+Rajendra Vilas
+Cheluvamba Mansion, Mysore
+Shivappa Nayaka Palace
+Daria Daulat Bagh.</p>
+<h4>FORTS</h4>
+<p>In Karnataka there are thousands of Forts, in Kannada called as Kote or Gad or Durga..</p>
+
+<p>The Forts in Karnataka are belongs to various dynasties, some of them are more than thousand years old.
+
+Main article: History of Karnataka
+Malliabad Fort
+Jaladurga
+Bahaddur Bandi Fort
+Kyadigera Fort
+Bidar Fort
+Basavakalyana Fort
+Bhalki Fort
+Manyakheta Fort
+Kittur Fort
+Parasgad Fort
+Belgaum Fort
+Saundatti Fort
+Ramdurg Fort
+Bailhongal Fort
+Hooli Fort
+Gokak Fort
+Shirasangi Fort
+Bijapur Fort
+Gajendrgad Fort
+Korlahalli Fort
+Hammigi Fort
+Hemagudda Fort
+Mundargi Fort
+Singatalur Fort
+Tippapura Fort
+Nargund Fort
+Magadi Fort
+Jamalabad Fort
+Barkur Fort
+Daria-Bahadurgad Fort
+Kapu Fort
+Havanur Fort
+Mirjan Fort
+Sadashivgad Fort
+Asnoti
+Sanduru Fort
+Bellary Fort
+Adoni Fort
+Koppal Fort
+Anegundi Fort
+Kampli Fort
+Irakalgada
+Gulbarga Fort
+Sedam Fort
+Shahpur Fort
+Aihole Fort
+Badami Fort
+Bankapura Fort
+Savanur Fort
+Chitradurga Fort[23]
+Devanahalli Fort
+Vanadurga Fort
+Channagiri Fort
+Kavaledurga Fort
+Basavaraj durga fort
+Uchangidurga Fort
+Budikote|
+Fort Anjediva
+Gudibanda
+Wagingera Fort
+Bangalore Fort
+Bhimgad Fort
+Kammatadurga
+Pavagada
+Madikeri Fort
+Savandurga
+Makalidurga|
+Vanadurga
+Sanmudageri
+Vishalgad
+Nagara Fort
+Basavaraja Fort
+Rayadurg
+Huthridurga
+Ambajidurga|
+Manjarabad Fort
+Skandagiri
+Hosadurga
+Nagara Fort
+Sathyamangalam Fort
+Tekkalakote Fort
+Thirthahalli Fort
+Raichur Fort.</p>
+<h4>BOTANICAL AND ROCK GARDANS</h4>
+<p>Lalbagh
+Brindavan Gardens
+Cubbon Park
+The Botanical Garden, University of Agricultural Sciences
+Karnataka University Botany Garden, Karnataka University
+Pampavana Garden, Munirabad
+University of Mysore Botanic Garden, University of Mysore
+Curzon Park, Mysore
+Nishat Baugh, Mysore
+Forest Research Centre Botanic Garden
+Utsav Rock Garden , Shiggaon: Sculptural Garden located near NH-4 Pune-Bangalore road, Gotagodi Village, Shiggaon Taluk, Haveri District, Karnataka. Utsav Rock Garden is a sculptural garden representing contemporary art and rural culture. A typical village is created where men and women are involved in their daily household activities.A unique picnic spot which delights common people, educated and intellectuals. There are more than 1000 sculptures in the garden of different sizes. It is an anthropological museum. It represents traditional farming, crafts, folklore, cattle herding and sheep rearing..</p>
+<h4>HILL STATIONS</h4>
+<p>The Hill stations in Karnataka are generally unexplored and more pristine than better known ones in South India..</p>
+<p>Agumbe, Shimoga District
+Kodachadri, Shimoga District
+Biligiriranga Hills, Chamarajanagar District
+Baba Budangiri, Chikkamagaluru District
+Kemmangundi, Chikkamagaluru District
+Kudremukh, Chikkamagaluru District
+Mullayanagiri
+Pushpagiri(or Kumara Parvatha)
+Nandi Hills, Chikkaballapur district
+Kundadri
+Tadiandamol
+Talakaveri
+Male Mahadeshwara Hills
+Himavad Gopalaswamy Betta
+Ambaragudda
+Antara Gange
+Savandurga
+Kurinja
+Yedakumeri
+Siddara Betta
+Bananthimari Betta
+Skandagiri
+Devarayanadurga
+Madhugiri hill station
+Mullaiyanagiri highest peak.</p>
+<h4>NATIONAL PARKS AND WILDLIFES<h4>
+<p>Karnataka in all has 21 wildlife sanctuaries and 5 National parks. Well known among them are Bandipur National Park in chamarajanagara District, Bannerghatta National Park in Bangalore district, Nagarhole National Park in Mysore District and Kodagu district, Kudremukh National Park in Dakshina Kannada and Chickmagalur district, Dandeli & Anshi National Park in Uttara Kannada district, Gudavi and Mandegadde bird sanctuaries and Sharavati WLS in Sagara Taluk, Shimoga District, Biligirirangan Hills WLS in Chamarajanagar district, Ranganathittu Bird Sanctuary in Mandya district, Brahmagiri wildlife sanctuary and Pushpagiri Wildlife Sanctuary in Kodagu district. Interior dry areas have their own unique wildlife.
+
+There are twenty-one wildlife sanctuaries and five national parks in all.
+
+Recently, the government of India has proposed to the UNESCO to include important ecosystems in the Western Ghats as a World Heritage Site. Two subclusters of natural areas occurring in the list are entirely in the Karnataka region covering several wildlife sanctuaries and some reserve forests. Fragile and exotic ecosystems like Kudremukh NP, Brahmagiri WLS, Pushpagiri WLS, Agumbe, Talakaveri WLS, Someshvara WLS figure in this list. As such, the Western Ghats that run south-north through the Karnataka is considered as one among the twenty-five bio-diversity hotspots of the world.
+
+The Niligiri Biosphere Reserve (also a designated UNESCO Biosphere reserve) is located at the junction of Karnataka, Tamil Nadu and Kerela. Nagarahole National Park WLS and Bandipur National Park and Nugu WLS in Karnataka are included in this biosphere reserve.
+
+The state is home to the largest concentration of Asian Elephants along Kabini River in Nagarahole and Bandipur parks. These two parks also hold among the most viable population of the highly endangered Indian Tiger. Ranebennur Blackbuck sanctuary in Haveri district is home to one of the largest populations of blackbuck anywhere in India. The Doraji wildlife sanctuary and areas in Karnataka like Bellary district, Chitradurga are strongholds of the sloth bear.
+
+Karnataka is home to more than 500 species of birds.[24].</p>
+<h4>WILDLIFE SANCTURAIES</h4>
+<p>Dandeli Wildlife Sanctuary, near to Hubli-Dharwad (70 km), Uttara Kannada: spread over 834.16 km2, it is the second largest wildlife sanctuary in Karnataka and is contiguous with the Mahaveer sanctuary in Goa.
+Ghataprabha Bird Sanctuary: small bird sanctuary incorporating the wetland along the river. It was established in 1974 and encompasses an area of 29 km².
+Daroji Bear Sanctuary, 15 kilometers from Hampi.[25]
+Peacock sanctuary in Bankapura, Shiggon taluk: Bankpur Fort is the second sanctuary in India exclusively engaged in the conservation and breeding of peacocks. It is also home to a variety of other birds.
+Ranebennur blackbuck sanctuary, Haveri district: declared a wildlife sanctuary on 17 June 1974, with a core area of 14.87 km and a buffer zone of 104.13 km for tourists. It is divided into three blocks namely Hulathi, Hunasikatti and Alageri for administrative purposes. The vegetation comprises mainly scrub forests and eucalyptus plantations. Other resident fauna include wild pigs, foxes, jackals and wolves.
+Deva Raya Wildlife Sanctuary, near Hampi, Bellary District: A privately owned sanctuary, named after kings of the Vijayanagar Empire.
+Attiveri Bird Sanctuary, near to Hubli-Dharwad, Uttara Kannada district: spread over an area of about 2.23 km2, the sanctuary is located in and around the Attiveri reservoir.
+Anshi National Park, Uttara Kannada: A habitat for tigers, leopards and elephants, about 340 square kilometres in size. Adjoins the Dandeli wildlife sanctuary.
+Magadi Bird Sanctuary, Shirahatti Taluk, Gadag District
+Bhimagada Sanctuary,[26] Belgaum District
+Adichunchanagiri Wildlife Sanctuary:[27]
+Arabithittu Wildlife Sanctuary:[28]
+Biligiriranga Swamy Temple Wildlife Sanctuary:
+Bhadra Wildlife Sanctuary:
+Brahmagiri Wildlife Sanctuary:
+Cauvery Wildlife Sanctuary:
+Melukote Temple Wildlife Sanctuary:[29] This is located in Mandya district
+Mookambika Wildlife Sanctuary
+Nugu Wildlife Sanctuary
+Pushpagiri Wildlife Sanctuary
+Sharavathi Valley Wildlife Sanctuary in Sagara Taluk
+Shettihalli Wildlife Sanctuary:
+Someshwara Wildlife Sanctuary: This is located in Udupi district
+Talakaveri Wildlife Sanctuary: This is located in Kodagu district
+Gudavi Bird Sanctuary: This is located in Shimoga district and is spread over 0.73 km². The tree species that dominate this sanctuary are Vitex leucoxylon and Phyllanthus polyphyllus. 191 species of birds are recorded here including white ibis, pheasant-tailed jacana, purple moorhen and little grebe.
+Mandagadde Bird Sanctuary
+Kaggaladu Heronry: This is located in Tumkur district and is one of the largest painted storks sanctuary in South India. Some of the birds that nest here are painted storks, grey herons, pelicans, black stilts and ducks.
+Kokkare Bellur
+Bankapura Peacock Sanctuary: This is located in Haveri district and spread over an area of 139.10 acres (0.5629 km2). This sanctuary was created mainly for the conservation of peacocks.
+Bonal Bird Sanctuary : This is located about 10 km from Shorapur city in Yadgir district..</p>
+<h4>DAMS AND RESORVOIR IN KARNATAKA</h4>
+<p>Almatti Dam across Krishna River
+Basava Sagara Dam, Lingsugur
+Bennethora Reservoir, near Harsur, Gulbarga district
+Bhadra Dam across Bhadra River
+Chakra Dam on the Chakra river
+Chikahole Dam, Chamarajnagar
+Daroji Reservoir, near Hospet, Bellary district
+Devarabelekere Reservoir, Davanagere district
+Dhupdal Dam, River Ghataprabha: constructed in 1883 with a nearby inspection bunglow
+Dhup Reservoir across Ghataprabha, Gokak
+Gajanuru Dam across Tunga River
+Gayathri Reservoir
+Garura Dam Krishna River
+Gersoppa dam /Sharawathi tailrace
+Harangi Reservoir Kushalnagar, Kodagu Dist
+Hemavathi Reservoir (Gorur Dam), Hassan Dist
+Hidkal Jalashaya (Dam) across Ghataprabha
+Iglooru Dam across shimsha river, Mandya Dist
+Kabini Reservoir Beechanahalli, H.D Kote, Mysore Dist
+Kadra Dam, Uttara Kannada district
+Kanva Reservoir
+Karanja Reservoir, Halikhed, Bidar District
+Kempu Hole Dam
+Kodasalli Dam
+Krishna Raja Sagara Dam on Kaveri River
+Lakkavali Dam across Bhadra river
+Linganamakki Dam on Sharavathi River in Sagara Taluk
+Manchinabeli Dam
+Mani Reservoir, near Thirthahalli, Shimoga district
+Munirabad, Koppal District
+Marconhalli Dam, Kunigal, Tumkur Dist
+Nagara Reservoir, near Nagara, Shimoga district
+Narayanapur
+Narayanpur Dam downstream of Almatti Dam
+Nugu Dam, Beerwal, H.D.Kote, Mysore Dist
+Naviltheertha Dam across Malaprabha
+Thumbe Dam across Nethravathi river
+Renuka Sagara Reservoir, Saundatti, Belgaum district
+Savehaklu Reservoir, near Thirthahalli, Shimoga district
+Shanti Sagara or Sulekere Reservoir, Chinnagiri, Davanagere district
+Shirur Dam, near Ankalgi, Belgaum district
+Supa Dam across Kali River, Ganeshgudi near Dandeli and Joida
+Suvarnawathi Dam, Chamarajnagar
+Talakalale Balancing Reservoir, near Sagara, Shimoga district
+Taraka Reservoir, H.D.Kote, Mysore Dist
+Tungabhadra Dam
+Thippagondanahalli Reservoir
+Vani Vilasa Sagara, (Marikanive), Hiriyur, Chitradurga Dist
+Watehole Dam, near Arehalli, Hassan Dist
+Yagachi Dam on the Yagachi River, Belur Taluka, Hassan District
+Gayathri reservoir, Hiriyur taluk, Chitradurga Dist.</p>
+<h4>CAVES</h4>
+<p>Some well known caves in Karnataka are Yana caves and Kavala caves and Syntheri rocks in Uttara Kannada district, Sugriva's cave in Hampi holds similarity to the descriptions of 'Kishkinda' in the epic Ramayana, hundreds of caves in Basava Kalyana in Bidar District..</p>
+<p>Aihole
+Badami cave temples
+Gavi Gangadhareshwara Temple
+Nellitheertha Cave Temple
+Hulimavu Shiva cave temple
+Pandava caves Mangalore
+Savandurga
+Kavala Caves
+Anthargange.</p>
+<h4>WATERFALLS</h4>
+<p>Karnataka has a number of waterfalls. Jog Falls of Sagara Taluk is one of the highest waterfalls in Asia. Some well known waterfalls are Varapoha Falls, Magod Falls, Lalgulli Falls, Sathodi Falls, Unchalli Falls, Lushington Falls, Shivaganga Falls, Ulavi Falls, Irupu Falls, Sivasamudram Falls near Shivanasamudra, Balmuri Falls, Gokak Falls, Abbe Falls, Achakanya Falls, Chunchanakatte Falls, Hebbe Falls, Kallathigiri Falls, Sogal Falls, Godachinamalki Falls etc..</p>
+<p>Gokak Falls, Ghataprabha River, near Gokak, Belgaum district: It drops from 52 metres over a sandstone cliff in a gorge.[citation needed] It is known locally as "mini Niagara"[citation needed] Hydro Electric Power has been harnessed at the falls since 1887 to run a cotton mill. Temples near the falls date from Badami Chalukyas to later Chalukya times and Vijayanagara periods. A suspension bridge crosses the river
+Godachinamalki Falls, Markhandeya River, near Godachinamalki, Belgaum district.
+Lushington Falls, Aghanashini River, Siddhapur Taluk: 116 meters in height and named after a district collector who discovered them in 1845
+Magod Falls, Gangavathi River, 125 km from Karwar: 183 metres (600 feet) in height, consists of a series of cascades over cliffs
+Varapoha Falls, Mahadayi River, in the Jamboti forest.</p>
+<h4>ECO-TOURISM</h4>
+<p>The districts of the Western Ghats and the southern districts have popular eco tourism locations.[30] Some of the popular locations include Kudremukh, Madikeri and Agumbe. Karnataka boasts of the highest elephant Gaur bison and tiger population (greater than 6000, 8000 and 400 respectively) in India. Its forests hold some of the largest remaining populations of the endangered tiger and leopard. Eco-tourism is a very popular activity in the state. Karnataka leads other states in eco-tourism. Jungle Lodges & Resorts, a state-run organisation has camping and safari facilities in several wildlife sanctuaries. Private safari providers have sprung up in several places along the western ghats.
+
+Nirvana beach is one of the finest beaches near Kumta and has a 5 km coastline with white sand and palm trees covering the entire coast, could be developed for eco beach tourism on the adjoining land falling in CRZ II category falling within 200 meters from HTL. Farmers and fishermen were allowed to run beach cottages and beach shacks by govt. of Goa, tourism department to attract tourists from around the world as well as domestic tourists, in the months of September till may every season.
+
+Several NGO's (youth groups) are actively involved in birding and other conservation activities..</p>
+<h4>ADVENTURE AND OUTDOOR ACTIVITIES</h4>
+<p>Adventure tourism has been growing at a pace of around 24% in Karnataka. The presence of Nilgiris, Western Ghats, rocky regions, waterfalls and lots of lakes and rivers make it an attractive destination. Certain activities at some regions namely Rock climbing at Hampi and Ramnagaram; Mountain biking at Nilgiris; Rafting at Honnemaradu in Sagara, Bheemeshwari, Dandeli and Coorg are famous.
+
+Besides this Sawandurga, Manchinbele (Feverpitch basecamp), Bheemeshwari Antharagange are also famous for rappelling, river crossing, caving and kayaking. There have been more than 100 places for trekking in Karnataka and many of them are organised by Government of Karnataka or government approved local vendors. Seasonal surfing is available in Gokarna and Kaup. Fever pitch base camp has been developed by tourism industry professionals which is located 40 km from Bangalore near Magadi.
+
+Bisle Ghat which is stretch of Western ghats from Kerala to Gujarat is also famous for treckking and adventurous activities.Farmers son Adventurous sports camp near Palya Town on the way to Sakleshpur Bisle ghat is also a must place to be visited by any foreign tourists.Farmers son Paintball arena and other ATV & Dirtbike sports are some of the interesting things to do at Hassan.
+
+Karnataka tourism started promoting Motorcycle tourism and tied up with Wicked Ride a Bengaluru-based motorcycle rental company to promote adventure and motorcycle tourism as a policy, they are working to set up camping sites across the state to provide safe and clean camping sites for backpackers and motorcyclists to explore the state.[31].</p>
+
+<p>Rock climbers visit several areas in Karnataka:
+
+Yana, Uttara Kannada
+Ramanagara, 50 km from Bangalore.
+Shivagange, Bangalore district
+Tekal, Kolar district
+Turahalli Forest
+Hampi
+Kunti Betta
+Anthargange, Kolar
+Skandagiri, Bangalore
+Devarayandurga, Tumkur
+Karadigudda, Magadi
+Trekking in Karnataka. Some of the most popular treks are:
+
+Dandeli
+Tadiyandamol Trek (Coorg)
+Kodachadri Trek
+Bheemeshwari Trek
+Kudremukh Trek
+Shakaleshpur Trek
+Dabbe falls (Sagara)
+Karwar Beach trek
+Madhugiri Fort Trek
+Sawandurga Trek
+Agumbe Rain Forest trek
+Makalidurga Trek
+Kumara Parvatha Trek(Pushpagiri)
+Green Route.</p>
+<h4>HEALTHCARE TOURISM</h4>
+<p>In the last couple of years Karnataka has emerged as a hot spot for health care tourism in India attracting health tourists from all over the world. Karnataka has highest number of approved health systems and alternative therapies. Along with some ISO certified government owned hospitals, private institutions which provide international quality services have caused health care industry to grow up to 30% during 2004–05. Hospitals in Karnataka treat around 8,000 and more health tourists every year.[32].</p>
+<h4>THE GOLDEN CHAROIT</h4>
+<p>The Golden Chariot is a luxury tourist train of Karnataka operated by Indian Railways and KSTDC (Karnataka State Tourism Development Corporation). Initially train was introduced exclusively for Karnataka, but recently it is expanded to whole south India. The train travels to the Karnataka's tourist destinations like Bangalore, Kabini, Mysore, Beluru, Halebidu, Shravanabelagola, Hampi, Badami, Pattadakal, Aihole and Goa.
+
+Train coaches are named after the Karnataka dynasties like Kadamba, Hoysala, Rashtrakuta, Ganga, Chalukya, Bahamani, Adil Shahi, Sangama, Satavahana, Yadukula and Vijayanagar..</p>
+<h4>ADMINISTRATION</h4>
+<p>Karnataka Tourism is the popular name of the Department of Tourism, Government of Karnataka (website: karnatakatourism.org).
+
+Karnataka Tourism is responsible for the sustainable development of tourism in Karnataka along with marketing of the destination worldwide. Karnataka's destination branding and marketing is done by India's leading tourism marketing organisation, Stark Communications. Stark is part of The Stark Group under whose umbrella are companies such as Stark Communications, Stark Expo, Starkworld Publishing, Stark Expo, starkwebworks, Stark Tourism Forum.
+
+Karnataka Tourism develops hospitality infrastructure through two government-owned companies, Jungle Lodges & Resorts and Karnataka State Tourism Development Corporation..</p>
+<h4>REFERENCES</h4>
+<p> "Handbook of Karnataka, Karnataka The Tourist Paradise". Archived from the original on 16 February 2012. Retrieved 29 August 2008.
+ Karnataka ranks among top five states in tourism: FICCI – OneIndia retrieved on 10 June 2006 Archived 29 October 2013 at the Wayback Machine.</p>
+<p> "Chalukya". Archived from the original on 20 April 2009. Retrieved 16 April 2009.
+ "Kalyani Chalukyan temples, Temples of Karnataka". Archived from the original on 14 May 2013. Retrieved 16 April 2009.
+ "hampi, UNESCO World Heritage Centre". Archived from the original on 26 March 2014. Retrieved 6 August 2008.
+ "Pattadakal, UNESCO World Heritage Centre". Archived from the original on 26 March 2014. Retrieved 6 August 2008.
+ "Aihole is located near Badami". Archived from the original on 27 May 2013. Retrieved 6 August 2008.
+ "Badami Cave Temples, Karnataka". Archived from the original on 19 April 2014. Retrieved 6 August 2008.
+ "EARLY WESTERN CHALUKYA CAVE-TEMPLES" (PDF). Archived from the original (PDF) on 27 May 2013. Retrieved 11 August 2008..</p>
+<p> "Kalyani Chalukyan temples". Archived from the original on 14 May 2013. Retrieved 7 August 2008..</p>
+<p> Kaladarshana - Ancient and Medieval Historical Indian Architecture and Art - Bijapur Archived 10 October 2013 at the Wayback Machine
+ Gol Gumbaz Photo gallery Archived 4 November 2012 at the Wayback Machine
+ "Bidar has 30 tombs of former kings". The Hindu. Chennai, India. 6 August 2008. Archived from the original on 5 November 2012. Retrieved 8 August 2008.
+ Manipal Tourism from “Manipal world news”
+ "Reach for the stars at this 3D hybrid Planetarium in Pilikula". Deccan Herald. 24 February 2018. Retrieved 21 April 2018.
+ Permanent Delegation of India to UNESCO (2014), Sacred Ensembles of the Hoysala, UNESCO
+ "Measures initiated to renovate Chitradurga fort". Archived from the original on 29 October 2013. Retrieved 18 April 2013.
+ karnatakabirds – Birds of Karnataka Archived 5 January 2014 at the Wayback Machine
+ http://www.karnataka.com/slothbear/ Archived 31 May 2009 at the Wayback Machine
+ "KARNATAKA STATE BIODIVERSITY STRATEGY AND ACTION PLAN (KBSAP)" (PDF). Archived from the original (PDF) on 11 June 2013. Retrieved 28 November 2008.
+ Adichunchanagiri Wildlife Sanctuary Archived 17 October 2013 at the Wayback Machine
+ Arabithittu Wildlife Sanctuary Archived 29 October 2013 at the Wayback Machine
+ Melkote Temple Wildlife Sanctuary - Mysore Nature Archived 17 October 2013 at the Wayback Machine
+ Article in Indianmba. Retrieved on 10 June 2006 Archived 3 April 2014 at the Wayback Machine
+ "State to promote motorcycle tourism - Bangalore Mirror -". Bangalore Mirror. Retrieved 13 February 2017.
+ "Karnataka bets big on healthcare tourism". Online webpage of the Hindu Business Line, dated 23 November 2004. 2004, The Hindu. Archived from the original on 29 September 2008. Retrieved 21 June 2007..</p>
+
+</div>
+   
+<footer>
+	
+	
+</footer>
+
+</body>
+</html>
